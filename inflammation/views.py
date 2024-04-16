@@ -32,5 +32,5 @@ def stat_overview(data_dict):
     :param data_dict: Dictionary of name -> data to plot
     """
     print('Basic statistics of inflammation data:')
-    for key in data_dict:
-        print('%s: %.2f' % (key, data_dict[key]))
+    for stat in data_dict:
+        print('%s: %.2f' % (stat, data_dict[stat]))
