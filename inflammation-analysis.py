@@ -20,7 +20,8 @@ def main(arguments):
         inflammation_data = models.load_csv(filename)
         view_data = {'average': models.daily_mean(inflammation_data),
                      'max': models.daily_max(inflammation_data),
-                     'min': models.daily_min(inflammation_data)
+                     'min': models.daily_min(inflammation_data),
+                     'std': models.daily_std(inflammation_data),
                      }
         views.visualize(view_data)
 
@@ -33,6 +34,10 @@ if __name__ == "__main__":
         'in_files',
         nargs='+',
         help='Input CSV(s) containing inflammation series for each patient')
+
+    parser.add_argument(
+        '--stat_overview',
+        help='Optionally: show textual overview of basic statistics')
 
     args = parser.parse_args()
 
