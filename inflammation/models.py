@@ -6,6 +6,7 @@ Patients' data is held in an inflammation table (2D array) where each row contai
 inflammation data for a single patient taken over a number of days 
 and each column represents a single day across all patients.
 """
+from functools import reduce
 
 import numpy as np
 
@@ -78,3 +79,17 @@ def patient_normalise(data):
     normalised[np.isnan(normalised)] = 0
     normalised[normalised < 0] = 0
     return normalised
+
+
+def daily_above_threshold(data, patient_nr, threshold):
+    """
+    Determine the number of days a patient's inflammation data is above a threshold.
+
+    :param data: 2D inflammation data array
+    :param patient_nr: patient index
+    :param threshold: daily threshold
+    :returns: True if patient's daily inflammation data is above a threshold'
+    """
+    bools = list(map(lambda x: x > threshold, data[patient_nr]))
+    int_bools = [int(x) for x in bools]
+    return reduce(lambda x, y: x + y, int_bools)
