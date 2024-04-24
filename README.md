@@ -28,3 +28,8 @@ python3 path_to_package/inflammation-analysis.py path_to_data/data1.csv path_to_
 
 ## License
 CC-BY 4.0
+
+## Citation
+Please cite as:
+
+Christiaanse, J.C., (2024),  *Inflam: the python tool for statistical analysis of patient inflammation data during medicial trials*, Journal of eScience Center, Volume 4, Issue 1, pg69-76
